@@ -1,4 +1,5 @@
 import 'package:amazone_clone/constants/global_variables.dart';
+import 'package:amazone_clone/features/account/widgets/single_product.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatefulWidget {
@@ -48,8 +49,14 @@ class _OrdersState extends State<Orders> {
         Container(
           height: 170,
           padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
-          child: ListView.builder(itemCount: list.length,
-              itemBuilder: (context, index) {}),
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+              itemCount: list.length,
+              itemBuilder: (context, index) {
+            return SingleProduct(
+              image: list[index],
+            );
+              }),
         )
       ],
     );
