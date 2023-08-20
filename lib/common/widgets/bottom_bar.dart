@@ -20,9 +20,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-    const Center(
-      child: Text('Cart Page'),
-    )
+    const CartScreen(),
   ];
 
   void updatePage(int page){
