@@ -3,7 +3,6 @@ import 'package:amazone_clone/constants/global_variables.dart';
 import 'package:amazone_clone/features/admin/screens/admin_screen.dart';
 import 'package:amazone_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazone_clone/features/auth/services/auth_service.dart';
-import 'package:amazone_clone/features/home/screens/home_screen.dart';
 import 'package:amazone_clone/providers/user_provider.dart';
 import 'package:amazone_clone/router.dart';
 import 'package:flutter/material.dart';
@@ -50,8 +49,8 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
           ? Provider.of<UserProvider>(context).user.type == 'user'
-              ? const BottomBar()
-              : const AdminScreen()
+          ? const BottomBar()
+          : const AdminScreen()
           : const AuthScreen(),
     );
   }

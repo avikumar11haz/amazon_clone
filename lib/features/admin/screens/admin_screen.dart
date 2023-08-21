@@ -1,4 +1,6 @@
 import 'package:amazone_clone/constants/global_variables.dart';
+import 'package:amazone_clone/features/admin/screens/analtyics_screen.dart';
+import 'package:amazone_clone/features/admin/screens/orders_screen.dart';
 import 'package:amazone_clone/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +18,11 @@ class _AdminScreenState extends State<AdminScreen> {
 
   List<Widget> pages = [
     const PostsScreen(),
-    const Center(
-      child: Text('Analytics Page'),
-    ),
-    const Center(
-      child: Text('Cart Page'),
-    )
+    const AnalyticsScreen(),
+    const OrdersScreen(),
   ];
 
-  void updatePage(int page){
+  void updatePage(int page) {
     setState(() {
       _page = page;
     });
@@ -37,8 +35,9 @@ class _AdminScreenState extends State<AdminScreen> {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           flexibleSpace: Container(
-            decoration:
-            const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+            decoration: const BoxDecoration(
+              gradient: GlobalVariables.appBarGradient,
+            ),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,10 +51,13 @@ class _AdminScreenState extends State<AdminScreen> {
                   color: Colors.black,
                 ),
               ),
-              const Text('Admin', style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),)
+              const Text(
+                'Admin',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
             ],
           ),
         ),
@@ -69,61 +71,64 @@ class _AdminScreenState extends State<AdminScreen> {
         iconSize: 28,
         onTap: updatePage,
         items: [
-          // Posts
-          BottomNavigationBarItem(icon: Container(
-            width: bottomBarWidth,
-            decoration: BoxDecoration(
+          // POSTS
+          BottomNavigationBarItem(
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(
-                      color: _page ==0
-                          ? GlobalVariables.selectedNavBarColor
-                          : GlobalVariables.backgroundColor,
-                      width: bottomBarWidth,
-                    )
-                )
+                  top: BorderSide(
+                    color: _page == 0
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.home_outlined,
+              ),
             ),
-            child: const Icon(
-              Icons.home_outlined,
-            ),
-          ),
             label: '',
           ),
-          // analytics
-          BottomNavigationBarItem(icon: Container(
-            width: bottomBarWidth,
-            decoration: BoxDecoration(
+          // ANALYTICS
+          BottomNavigationBarItem(
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(
-                      color: _page == 1
-                          ? GlobalVariables.selectedNavBarColor
-                          : GlobalVariables.backgroundColor,
-                      width: bottomBarWidth,
-                    )
-                )
+                  top: BorderSide(
+                    color: _page == 1
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.analytics_outlined,
+              ),
             ),
-            child: const Icon(
-              Icons.analytics_outlined,
-            ),
-          ),
             label: '',
           ),
-          // Orders
-          BottomNavigationBarItem(icon: Container(
-            width: bottomBarWidth,
-            decoration: BoxDecoration(
+          // ORDERS
+          BottomNavigationBarItem(
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(
-                      color: _page == 2
-                          ? GlobalVariables.selectedNavBarColor
-                          : GlobalVariables.backgroundColor,
-                      width: bottomBarWidth,
-                    )
-                )
+                  top: BorderSide(
+                    color: _page == 2
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.all_inbox_outlined,
+              ),
             ),
-            child: const Icon(
-              Icons.all_inbox_outlined,
-            ),
-          ),
             label: '',
           ),
         ],

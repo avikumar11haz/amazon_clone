@@ -14,8 +14,9 @@ class AccountScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           flexibleSpace: Container(
-            decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+            decoration: const BoxDecoration(
+              gradient: GlobalVariables.appBarGradient,
+            ),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,13 +32,15 @@ class AccountScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 15, right: 15),
-                child: const Row(
-                  children: [
+                child: Row(
+                  children: const [
                     Padding(
                       padding: EdgeInsets.only(right: 15),
                       child: Icon(Icons.notifications_outlined),
                     ),
-                    Icon(Icons.search),
+                    Icon(
+                      Icons.search,
+                    ),
                   ],
                 ),
               )
@@ -45,14 +48,12 @@ class AccountScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const Column(
-        children: [
+      body: Column(
+        children: const [
           BelowAppBar(),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           TopButtons(),
-          SizedBox(height: 20,),
+          SizedBox(height: 20),
           Orders(),
         ],
       ),
